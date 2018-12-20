@@ -1,5 +1,5 @@
 import React from 'react';
-import ContactPreview from '../ContactPreview/ContactPreview'
+import ContactPreview from '../ContactPreview'
 
 import './ContactList.css';
 

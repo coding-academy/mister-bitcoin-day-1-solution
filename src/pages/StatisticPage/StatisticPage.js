@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Chart from '../../components/Chart/Chart';
+import Chart from '../../components/Chart';
 
 import {BitcoinService} from '../../services/BitcoinService'
 import './StatisticPage.css'

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import HomePage from './pages/HomePage/HomePage'
-import StatisticPage from './pages/StatisticPage/StatisticPage'
-import ContactPage from './pages/ContactPage/ContactPage'
-import ContactDetails from './pages/ContactDetails/ContactDetails'
+import HomePage from './pages/HomePage'
+import StatisticPage from './pages/StatisticPage'
+import ContactPage from './pages/ContactPage'
+import ContactDetails from './pages/ContactDetails'
 
 import './App.css'
 
@@ -12,10 +12,10 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <ContactPage />
+        {/* <ContactPage /> */}
         {/* <ContactDetails /> */}
         {/* <StatisticPage /> */}
-        {/* <HomePage />   */}
+        <HomePage />
       </div>
     );
   }

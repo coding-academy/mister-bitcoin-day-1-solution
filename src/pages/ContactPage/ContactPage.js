@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ContactService from '../../services/ContactService'
 
-import ContactList from '../../components/ContactList/ContactList'
+import ContactList from '../../components/ContactList'
 
 import './ContactPage.css'
 
