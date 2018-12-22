@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import {BitcoinService} from '../../services/BitcoinService'
-import {UserService} from '../../services/UserService'
+import bitcoinService from '../../services/BitcoinService'
+import userService from '../../services/UserService'
 
 import coinsImg from '../../assets/icons/coins.png'
 import bitcoinImg from '../../assets/icons/bitcoin.png'
@@ -10,12 +10,12 @@ import './HomePage.css'
 class HomePage extends Component {
   
   state = {
-    user: UserService.loadUser(),
+    user: userService.loadUser(),
     bitcoinRate: 0
   }
 
   async componentDidMount() {
-    const bitcoinRate = await BitcoinService.getBitcoinRate(this.state.user.coins)
+    const bitcoinRate = await bitcoinService.getBitcoinRate(this.state.user.coins)
     this.setState({bitcoinRate})
   }
 
@@ -30,7 +30,7 @@ class HomePage extends Component {
               <img src={coinsImg} alt="coins" width="24px" height="24px" /> Coins: {this.state.user.coins} 
             </div>
             <div className="user-coins-rate">
-            <img src={bitcoinImg} alt="bitcoin" width="24px" height="24px" /> BTC: {this.bitcoinRate}
+            <img src={bitcoinImg} alt="bitcoin" width="24px" height="24px" /> BTC: {this.state.bitcoinRate}
             </div>
           </div>
       </div>

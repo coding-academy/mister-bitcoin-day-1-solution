@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ContactService from '../../services/ContactService'
+import contactService from '../../services/ContactService'
 
 import ContactList from '../../components/ContactList'
 
@@ -9,7 +9,7 @@ class ContactPage extends Component {
   state = {contacts: []}
 
   componentDidMount() {
-    ContactService.getContacts().then(contacts => {
+    contactService.getContacts().then(contacts => {
       this.setState({contacts})
     })
   }

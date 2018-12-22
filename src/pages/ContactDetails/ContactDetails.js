@@ -1,5 +1,5 @@
 import React, { Component }  from 'react';
-import ContactService from '../../services/ContactService'
+import contactService from '../../services/ContactService'
 
 import imgAvatar from '../../assets/img_avatar.png'
 
@@ -11,7 +11,7 @@ class ContactDetails  extends Component {
   
   componentDidMount() {
     const id = '5a56640269f443a5d64b32ca';
-    ContactService.getContactById(id).then(contact => {
+    contactService.getContactById(id).then(contact => {
       this.setState({contact})
     })
   }
