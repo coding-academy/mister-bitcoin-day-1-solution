@@ -8,15 +8,19 @@ import './StatisticPage.css'
 class StatisticPage extends Component {
   
   state = {
-    marketPrice: null,
-    confirmedTransactions: null,
+    chartsData: [],
     loading: true
   }
 
   async componentDidMount() {
-    const marketPrice = await bitcoinService.getMarketPrice()
-    const confirmedTransactions = await bitcoinService.getConfirmedTransactions()
-    this.setState({marketPrice, confirmedTransactions, loading: false})
+    this.setState({loading: true})
+    
+    const chartsData = await Promise.all([
+      bitcoinService.getMarketPrice(), 
+      bitcoinService.getConfirmedTransactions()
+    ])
+
+    this.setState({chartsData, loading: false})
   }
 
   renderChart(chart, color) {
@@ -33,11 +37,15 @@ class StatisticPage extends Component {
   render() {
     if (this.state.loading) return <div>Loading...</div>
 
+    const colors = ['blue', 'green']
     return (
       <div className="statistic-page">
-        <ul>
-          {this.renderChart(this.state.marketPrice, 'blue')}
-          {this.renderChart(this.state.confirmedTransactions, 'green')}
+         <ul>
+        {
+          this.state.chartsData.map( (chart, idx) => 
+            <li className="statistic-chart" key={idx}>{this.renderChart(chart, colors[idx])}</li>
+          )
+        }
         </ul>
       </div>
     );
